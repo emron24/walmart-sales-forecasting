@@ -1,0 +1,26 @@
+# Ignore raw and processed data (large files)
+data/raw/*
+data/processed/*
+
+# Ignore Jupyter notebook checkpoints
+.ipynb_checkpoints/
+
+# Ignore Python cache and virtual environments
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.env
+venv/
+env/
+
+# Ignore Power BI files (can be very large)
+*.pbix
+
+# Ignore Excel dashboards if they get too big
+*.xlsx
+*.xls
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db

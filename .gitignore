@@ -1,5 +1,5 @@
 # Ignore raw and processed data (large files)
-data/raw/*
+#data/raw/*
 data/processed/*
 
 # Ignore Jupyter notebook checkpoints

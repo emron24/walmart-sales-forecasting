@@ -1,6 +1,6 @@
 # Ignore raw and processed data (large files)
 #data/raw/*
-data/processed/*
+#gitdata/processed/*
 
 # Ignore Jupyter notebook checkpoints
 .ipynb_checkpoints/

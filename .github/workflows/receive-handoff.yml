@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  execute_notebook:
+  execute_notebooks:
     runs-on: ubuntu-latest
 
     steps:
@@ -24,6 +24,14 @@ jobs:
           pip install pandas matplotlib seaborn papermill jupyter ipykernel
           python -m ipykernel install --user --name python3
 
-      - name: Run notebook with Papermill
+      - name: Run 01_data_loading
         run: |
           papermill notebooks/01_data_loading.ipynb notebooks/01_data_loading_output.ipynb
+
+      - name: Run 02_data_cleaning
+        run: |
+          papermill notebooks/02_data_cleaning.ipynb notebooks/02_data_cleaning_output.ipynb
+
+      - name: Run 03_feature_engineering
+        run: |
+          papermill notebooks/03_feature_engineering.ipynb notebooks/03_feature_engineering_output.ipynb

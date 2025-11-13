@@ -4,7 +4,8 @@ import joblib
 import pandas as pd
 
 app = FastAPI()
-model = joblib.load("../models/random_forest_model.pkl")
+model = joblib.load("random_forest_model.pkl")
+
 
 @app.post("/predict")
 async def predict(request: Request):

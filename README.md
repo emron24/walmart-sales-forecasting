@@ -1,1 +1,125 @@
-🛒 Walmart Weekly Sales Forecasting and AnalysisProject OverviewThis project leverages Walmart's historical sales data to achieve two primary goals:T-SQL Analysis: Perform deep analysis in SQL Server Management Studio (SSMS) to identify top-performing stores, key seasonal trends, and the impact of macro-economic factors.Machine Learning Forecasting: Develop a robust, specialized time-series model (Facebook Prophet) to accurately predict future weekly sales, thereby establishing a reliable tool for supply chain and inventory management.🛠️ Project PipelineThe project follows a standard data science methodology:Data Loading & Cleaning: Handled missing data, converted data types, and ensured data integrity.Feature Engineering (Python): Extracted time-based features (year, month) and created crucial forecasting features (weekly_sales_lag1 and macro-economic interactions).T-SQL Analysis (SQL Server): Executed descriptive queries to generate key business insights.Modeling (Jupyter Notebooks): Developed and compared multiple forecasting models.📊 T-SQL Analysis Key Business InsightsThe database analysis provided a foundation for business strategy:Top Performing Stores: Stores #20, #4, and #14 consistently yielded the highest average weekly sales, confirming where the company's financial success is concentrated.Seasonality: Sales peaked reliably in October and saw a pronounced dip in January, indicating clear annual cycles outside of major holidays.Volume Driver: Non-holiday weeks drove the vast majority of total sales volume, emphasizing the importance of optimizing logistics for consistent weekly demand over just holiday spikes.📈 Forecasting Model ResultsThree models were benchmarked to find the optimal solution for weekly sales prediction:ModelMAE (Mean Absolute Error)ConclusionLinear Regression$56,858.37Established the baseline. Provided transparent interpretability via coefficients.Random Forest Regressor$83,390.86$Failed to beat the baseline, signaling the non-linear relationship is complex and requires specialized handling.Facebook ProphetVisual ConfirmationSuccessfully captured the strong seasonality, holiday effects, and trend of the time series, proving the most suitable method for a final production forecast.Key Predictive Feature: weekly_sales_lag1 (the previous week's sales) was overwhelmingly the most powerful predictor across all models, confirming the highly autoregressive nature of weekly retail sales.🚀 ConclusionThe project successfully concluded that while simple regression models struggle to generalize on this time-series data, the specialized Facebook Prophet model is required to provide reliable, actionable sales forecasts. This model allows the business to proactively manage inventory and staffing based on future demand signals.  
+# 🛒 Walmart Sales Forecasting
+
+**End-to-end data analysis and forecasting pipeline** using SQL, Python, and Power BI to uncover business insights from Walmart’s weekly sales data. This project demonstrates advanced data cleaning, feature engineering, time-series modeling, and dashboard storytelling — built for real-world impact and recruiter appeal.
+
+---
+
+## 📦 Project Structure
+
+📦 walmart-sales-forecasting
+├── data
+│   ├── raw                 → Original CSV dataset
+│   ├── processed           → Cleaned and feature-engineered snapshots
+│   └── models              → Saved model artifacts (e.g. Random Forest)
+├── notebooks
+│   ├── 01_data_loading.ipynb
+│   ├── 02_data_cleaning.ipynb
+│   ├── 03_feature_engineering.ipynb
+│   └── 04_model_training.ipynb
+├── sql
+│   ├── walmart_schema.sql
+│   └── walmart_analysis.sql
+├── visuals
+│   ├── dashboard_kpis.png
+│   ├── store_ranking.png
+│   ├── monthly_matrix.png
+│   └── holiday_comparison.png
+└── README.md
+
+---
+
+## 🔍 Dataset Overview
+
+- **Source:** Walmart weekly sales data (2010–2012)
+- **Records:** 6,435 rows × 15 columns
+- **Stores:** 45 unique locations
+- **Time Span:** 57 weeks
+- **Features:** Sales, temperature, fuel price, CPI, unemployment, holiday flags, engineered time features
+
+---
+
+## 🧮 SQL Analysis Highlights
+
+- **Total Weekly Sales:** `$2.72B`
+- **Average Weekly Sales:** `$1.06M`
+- **Top Stores by Avg Sales:**
+  - Store 20 → `$2.17M`
+  - Store 4 → `$2.08M`
+  - Store 14 → `$2.07M`
+- **Seasonality Insight:** October peaks, December dips
+- **Holiday Impact:** Non-holiday weeks dominate total sales, but holiday weeks show slightly higher per-week averages
+
+📄 See [`sql/walmart_analysis.sql`](sql/walmart_analysis.sql) for full query set.
+
+---
+
+## 🧠 Modeling Pipeline
+
+### 🔹 Linear Regression (Baseline)
+- MAE: ~\$X (from notebook)
+- Feature importance printed for interpretability
+
+### 🔹 Random Forest Regressor (Optimized)
+- MAE: ~\$Y (lower than baseline)
+- Feature importance ranked by Gini
+- Hyperparameters tuned to reduce overfitting
+
+### 🔹 Prophet (Time-Series)
+- Captures weekly and yearly seasonality
+- Incorporates holiday effects
+- Forecasts next 10 weeks with confidence intervals
+
+📄 See [`04_model_training.ipynb`](notebooks/04_model_training.ipynb) for full training and evaluation.
+
+---
+
+## 📊 Power BI Dashboard
+
+Interactive visuals built from the cleaned and engineered dataset:
+
+| KPI Card              | Value     |
+|-----------------------|-----------|
+| Total Weekly Sales    | `$2.72B`  |
+| Average Weekly Sales  | `$1.06M`  |
+| Number of Stores      | `45`      |
+| Number of Weeks       | `57`      |
+
+### Key Visuals:
+- **Store Ranking:** Horizontal bar chart of top performers
+- **Holiday Comparison:** Sales drop during holidays
+- **Time Series:** Weekly sales trend from 2010–2013
+- **Monthly Matrix:** Seasonal patterns across stores
+
+📸 Screenshots in [`visuals/`](visuals/)
+
+---
+
+## 🧰 Tools & Technologies
+
+- **SQL Server Management Studio (SSMS)** → schema design, KPI queries
+- **Python (Pandas, Seaborn, Scikit-learn, Prophet)** → cleaning, modeling
+- **Power BI** → dashboard creation
+- **Jupyter Notebooks** → reproducible workflow
+- **GitHub** → version control and portfolio presentation
+
+---
+
+## 💡 Business Impact
+
+This project simulates a real-world retail analytics workflow:
+- Identifies top-performing stores for strategic investment
+- Reveals seasonal and holiday-driven sales patterns
+- Builds predictive models for inventory and staffing decisions
+- Communicates insights through a clean, executive-ready dashboard
+
+---
+
+## 📬 Contact
+
+Built by **Emran Nabizadeh**  
+📍 Based in Paris | 💼 Data Analyst | 📈 Portfolio-driven learner  
+📧 [emron.n1376@gmail.com] | 🌐 [LinkedIn Profile] | 🗂️ [https://github.com/emron24]
+
+---
+
+

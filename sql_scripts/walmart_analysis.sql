@@ -67,3 +67,4 @@ FROM walmart_sales
 GROUP BY Store, MONTH(Date)
 ORDER BY Store, Month_Number;
 GO
+ 

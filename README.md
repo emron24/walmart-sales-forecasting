@@ -116,8 +116,9 @@ This project simulates a real-world retail analytics workflow:
 
 Built by **Emran Nabizadeh**  
 📍 Based in Paris | 💼 Data Analyst | 📈 Portfolio-driven learner  
-📧 [emron.n1376@gmail.com] | 🌐 [LinkedIn Profile] | 🗂️ [https://github.com/emron24]
+📧 [emron.n1376@gmail.com] |  🗂️ [https://github.com/emron24]
 
 ---
 
 
+ 

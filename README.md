@@ -2,10 +2,9 @@
 
 **End-to-end data analysis and forecasting pipeline** using SQL, Python, and Power BI to uncover business insights from Walmart’s weekly sales data. This project demonstrates advanced data cleaning, feature engineering, time-series modeling, and dashboard storytelling — built for real-world impact and recruiter appeal.
 
----
 
 ## 📦 Project Structure
-
+```
 📦 walmart-sales-forecasting
 ├── data
 │   ├── raw                 → Original CSV dataset
@@ -25,8 +24,7 @@
 │   ├── monthly_matrix.png
 │   └── holiday_comparison.png
 └── README.md
-
----
+```
 
 ## 🔍 Dataset Overview
 
@@ -49,7 +47,7 @@
 - **Seasonality Insight:** October peaks, December dips
 - **Holiday Impact:** Non-holiday weeks dominate total sales, but holiday weeks show slightly higher per-week averages
 
-📄 See [`sql/walmart_analysis.sql`](sql/walmart_analysis.sql) for full query set.
+📄 See [sql/walmart_analysis.sql] for full query set.
 
 ---
 

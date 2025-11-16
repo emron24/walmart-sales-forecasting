@@ -25,18 +25,19 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          # Assumes requirements.txt now includes pandas, prophet, papermill, etc.
           pip install -r requirements.txt
+          # Installing papermill and jupyter/ipykernel directly in case they aren't in requirements.txt
+          pip install jupyter ipykernel papermill
 
       # 4. Register Jupyter kernel
       - name: Register python3 kernel
         run: python -m ipykernel install --user --name=python3 --display-name "Python 3"
 
-      # 5. NEW STEP: Run data loading to create the initial snapshot file.
+      # 5. [FIXED] Run data loading (01) first to create the initial 'walmart_snapshot.csv'
       - name: Run data loading
         run: papermill notebooks/01_data_loading.ipynb notebooks/01_data_loading_output.ipynb -k python3
 
-      # 6. Run data cleaning notebook (Reads output from Step 5)
+      # 6. Run data cleaning notebook (Reads snapshot)
       - name: Run data cleaning
         run: papermill notebooks/02_data_cleaning.ipynb notebooks/02_data_cleaning_output.ipynb -k python3
 
@@ -48,9 +49,9 @@ jobs:
       - name: Run model training
         run: papermill notebooks/04_model_training.ipynb notebooks/04_model_training_output.ipynb -k python3
 
-      # 9. Upload executed notebooks as artifacts (optional but useful)
-      - name: Upload notebooks
-        uses: actions/upload-artifact@v3
+      # 9. [FIXED] Upload executed notebooks using v4 of the action
+      - name: Upload executed notebooks
+        uses: actions/upload-artifact@v4
         with:
           name: executed-notebooks
           path: notebooks/*_output.ipynb

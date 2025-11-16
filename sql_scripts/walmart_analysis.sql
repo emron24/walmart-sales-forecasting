@@ -2,10 +2,6 @@
 -- # WALMART SALES ANALYSIS QUERIES            #
 -- #############################################
 
--- Use your specific database name here if necessary
--- USE Your_Database_Name;
--- GO
-
 -- 1. TOP-LEVEL KPIs (Total, Average, Store Count, Weeks)
 ---------------------------------------------------------
 SELECT

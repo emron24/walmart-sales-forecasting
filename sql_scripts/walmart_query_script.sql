@@ -1,4 +1,7 @@
 
+-- #############################################
+-- # CORE WALMART SALES ANALYSIS QUERIES       #
+-- #############################################
 
 -- Re-create the table with the full 15-column schema
 CREATE TABLE [Walmart Data Analysis and Forecasting] (
@@ -19,14 +22,6 @@ CREATE TABLE [Walmart Data Analysis and Forecasting] (
     DayOfWeek TINYINT
 );
 GO
-
--- #############################################
--- # CORE WALMART SALES ANALYSIS QUERIES       #
--- #############################################
-
--- Use your specific database name here if necessary
--- USE Your_Database_Name; 
--- GO
 
 -- 1. TOP-LEVEL KPIs (Total, Average, and Store Count)
 ---------------------------------------------

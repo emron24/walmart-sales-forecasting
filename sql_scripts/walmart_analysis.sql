@@ -37,14 +37,14 @@ GO
 -- 4. HOLIDAY VS NON-HOLIDAY COMPARISON
 ---------------------------------------------
 SELECT
-    CASE Is_Holiday
+    CASE holiday_flag
         WHEN 1 THEN 'Holiday Week'
         ELSE 'Non-Holiday Week'
     END AS Week_Type,
     CAST(SUM(Weekly_Sales) AS DECIMAL(18, 2)) AS Total_Sales_USD,
     CAST(AVG(Weekly_Sales) AS DECIMAL(15, 2)) AS Avg_Sales_USD
 FROM walmart_sales
-GROUP BY Is_Holiday;
+GROUP BY holiday_flag ;
 GO
 
 -- 5. WEEKLY SALES TREND OVER TIME

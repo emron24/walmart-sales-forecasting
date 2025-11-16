@@ -28,6 +28,7 @@ jobs:
           pip install -r requirements.txt
           # Installing papermill and jupyter/ipykernel directly in case they aren't in requirements.txt
           pip install jupyter ipykernel papermill
+          pip install tabulate
 
       # 4. Register Jupyter kernel
       - name: Register python3 kernel

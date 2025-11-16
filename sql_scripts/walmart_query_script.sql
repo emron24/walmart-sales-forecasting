@@ -84,3 +84,4 @@ FROM
 GROUP BY
     holiday_flag; -- Corrected column: holiday_flag
 GO
+ 

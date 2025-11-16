@@ -11,19 +11,42 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # 1. Checkout repo
       - name: Checkout repo
         uses: actions/checkout@v3
 
+      # 2. Set up Python
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: "3.10"
 
+      # 3. Install dependencies
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
+          pip install jupyter ipykernel papermill
 
-      - name: Run model training notebook
-        run: |
-          papermill notebooks/04_model_training.ipynb notebooks/04_model_training_output.ipynb
+      # 4. Register Jupyter kernel
+      - name: Register python3 kernel
+        run: python -m ipykernel install --user --name=python3 --display-name "Python 3"
+
+      # 5. Run data cleaning notebook
+      - name: Run data cleaning
+        run: papermill notebooks/02_data_cleaning.ipynb notebooks/02_data_cleaning_output.ipynb -k python3
+
+      # 6. Run feature engineering notebook
+      - name: Run feature engineering
+        run: papermill notebooks/03_feature_engineering.ipynb notebooks/03_feature_engineering_output.ipynb -k python3
+
+      # 7. Run model training notebook
+      - name: Run model training
+        run: papermill notebooks/04_model_training.ipynb notebooks/04_model_training_output.ipynb -k python3
+
+      # 8. Upload executed notebooks as artifacts (optional but useful)
+      - name: Upload notebooks
+        uses: actions/upload-artifact@v3
+        with:
+          name: executed-notebooks
+          path: notebooks/*_output.ipynb
